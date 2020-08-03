@@ -5,7 +5,7 @@ namespace Tenor.Schema
     /// <summary>
     /// Result returned by a search request
     /// </summary>
-    public class SearchResult : QueryResult
+    public class SearchResult : GifQueryResult
     {
         /// <summary>
         /// Url to view search results in the browser

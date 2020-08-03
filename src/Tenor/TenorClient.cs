@@ -89,7 +89,7 @@ namespace Tenor
             return client;
         }
 
-        private Dictionary<string, object> GetParameters(Dictionary<string, object> customParamters)
+        private Dictionary<string, object> GetParameters(Dictionary<string, object> customParamters = null)
         {
             var defaultParameters = new Dictionary<string, object>
             {
@@ -99,7 +99,14 @@ namespace Tenor
                 { "media_filter", config.MediaFilter },
                 { "ar_range", config.AspectRatio },
             };
-            return defaultParameters.Union(customParamters).ToDictionary(pair => pair.Key, pair => pair.Value);
+            if (customParamters == null)
+            {
+                return defaultParameters;
+            }
+            else
+            {
+                return defaultParameters.Union(customParamters).ToDictionary(pair => pair.Key, pair => pair.Value);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Tenor.Schema
     /// <summary>
     /// Paginated result returned for a request
     /// </summary>
-    public class QueryResult
+    public class GifQueryResult
     {
         /// <summary>
         /// Collection of results matching search criteria
