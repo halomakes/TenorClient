@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 
 namespace Tenor
@@ -6,36 +8,67 @@ namespace Tenor
     public partial class TenorClient
     {
         private readonly ApiClient client;
-        private static readonly Uri baseUrl = new Uri("https://api.tenor.com/");
-        private readonly string apiKey;
+        private readonly TenorConfiguration config;
+        private Uri BaseUrl => config.BaseUrl;
 
         public TenorClient(string apiKey)
         {
-            this.apiKey = apiKey;
+            config = new TenorConfiguration { ApiKey = apiKey };
             client = new ApiClient(ConfigureHttpClient());
         }
 
         public TenorClient(string apiKey, HttpClient httpClient)
         {
-            this.apiKey = apiKey;
+            config = new TenorConfiguration { ApiKey = apiKey };
             client = new ApiClient(ConfigureHttpClient(httpClient));
         }
 
         public TenorClient(string apiKey, IHttpClientFactory clientFactory)
         {
-            this.apiKey = apiKey;
+            config = new TenorConfiguration { ApiKey = apiKey };
             client = new ApiClient(ConfigureHttpClient(clientFactory.CreateClient()));
         }
 
-        private static HttpClient ConfigureHttpClient(HttpClient client = null)
+        public TenorClient(TenorConfiguration config)
+        {
+            this.config = config;
+            client = new ApiClient(ConfigureHttpClient());
+        }
+
+        public TenorClient(TenorConfiguration config, HttpClient httpClient)
+        {
+            this.config = config;
+            client = new ApiClient(ConfigureHttpClient(httpClient));
+        }
+
+        public TenorClient(TenorConfiguration config, IHttpClientFactory clientFactory)
+        {
+            this.config = config;
+            client = new ApiClient(ConfigureHttpClient(clientFactory.CreateClient()));
+        }
+
+        private HttpClient ConfigureHttpClient(HttpClient client = null)
         {
             if (client == null)
             {
                 client = new HttpClient();
             }
 
-            client.BaseAddress = baseUrl;
+            client.BaseAddress = BaseUrl;
             return client;
+        }
+
+        private Dictionary<string, object> GetParameters(Dictionary<string, object> customParamters)
+        {
+            var defaultParameters = new Dictionary<string, object>
+            {
+                { "key", config.ApiKey },
+                { "locale", config.Locale },
+                { "contentfilter", config.ContentFilter },
+                { "media_filter", config.MediaFilter },
+                { "ar_range", config.AspectRatio },
+            };
+            return defaultParameters.Union(customParamters).ToDictionary(pair => pair.Key, pair => pair.Value);
         }
     }
 }

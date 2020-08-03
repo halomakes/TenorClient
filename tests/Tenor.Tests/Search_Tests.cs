@@ -12,7 +12,7 @@ namespace Tenor.Tests
 
         public Search_Tests()
         {
-            client = new TenorClient("LIVDSRZULELA"); // example key from their documentation page
+            client = new TenorClient(Utils.ApiKey);
         }
 
         [Fact]
@@ -28,7 +28,8 @@ namespace Tenor.Tests
         public async Task Should_Use_Correct_Culture()
         {
             var culture = CultureInfo.GetCultureInfo("es");
-            var results = await client.SearchAsync("Zanahoria", locale: culture);
+            var client = new TenorClient(new TenorConfiguration { ApiKey = Utils.ApiKey, Locale = culture });
+            var results = await client.SearchAsync("Zanahoria");
 
             Assert.NotEmpty(results.Results);
         }
@@ -44,7 +45,8 @@ namespace Tenor.Tests
         [Fact]
         public async Task Should_Apply_Filter()
         {
-            var results = await client.SearchAsync("ass", contentFilter: ContentFilter.Off);
+            var client = new TenorClient(new TenorConfiguration { ApiKey = Utils.ApiKey, ContentFilter = ContentFilter.Off });
+            var results = await client.SearchAsync("ass");
 
             Assert.NotEmpty(results.Results);
         }
