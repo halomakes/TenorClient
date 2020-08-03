@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using JsonNet.ContractResolvers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using System.IO;
 using System.Net.Http;
@@ -9,15 +11,21 @@ namespace Tenor
 {
     class ApiClient
     {
-        protected static JsonSerializerSettings settings = new JsonSerializerSettings()
-        {
-            NullValueHandling = NullValueHandling.Include,
-            MissingMemberHandling = MissingMemberHandling.Ignore,
-            DateTimeZoneHandling = DateTimeZoneHandling.Utc,
-            ContractResolver = new CamelCasePropertyNamesContractResolver(),
-        };
+        protected static JsonSerializerSettings settings;
 
         protected HttpClient httpClient;
+
+        static ApiClient()
+        {
+            settings = new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Include,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+                ContractResolver = new PrivateSetterCamelCasePropertyNamesContractResolver()
+            };
+            settings.Converters.Add(new StringEnumConverter());
+        }
 
         public ApiClient()
         {

@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenor.ApiClient", "Tenor.ApiClient\Tenor.ApiClient.csproj", "{F3B8461E-2D6F-4C24-A3BA-EE56691B25D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5FB57ECC-A37A-4BEF-A550-E37ED5CD8E78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenor", "src\Tenor\Tenor.csproj", "{E9DFB276-6655-4668-B13B-6C1015E98E87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3C403BFB-120D-40A9-9D7D-9E25BD0F3B5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenor.Tests", "tests\Tenor.Tests\Tenor.Tests.csproj", "{DA0F653C-19FB-4F98-9AE5-FC2E7087C9CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +17,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F3B8461E-2D6F-4C24-A3BA-EE56691B25D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3B8461E-2D6F-4C24-A3BA-EE56691B25D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3B8461E-2D6F-4C24-A3BA-EE56691B25D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3B8461E-2D6F-4C24-A3BA-EE56691B25D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DFB276-6655-4668-B13B-6C1015E98E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DFB276-6655-4668-B13B-6C1015E98E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DFB276-6655-4668-B13B-6C1015E98E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DFB276-6655-4668-B13B-6C1015E98E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0F653C-19FB-4F98-9AE5-FC2E7087C9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0F653C-19FB-4F98-9AE5-FC2E7087C9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0F653C-19FB-4F98-9AE5-FC2E7087C9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0F653C-19FB-4F98-9AE5-FC2E7087C9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9DFB276-6655-4668-B13B-6C1015E98E87} = {5FB57ECC-A37A-4BEF-A550-E37ED5CD8E78}
+		{DA0F653C-19FB-4F98-9AE5-FC2E7087C9CF} = {3C403BFB-120D-40A9-9D7D-9E25BD0F3B5B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BE0284A-8689-4EC9-8B7B-AF2780753C71}
