@@ -4,16 +4,10 @@ using System.Collections.Generic;
 namespace Tenor.Schema
 {
     /// <summary>
-    /// Result returned by a search request
+    /// Paginated result returned for a request
     /// </summary>
-    public class SearchResults
+    public class QueryResult
     {
-        /// <summary>
-        /// Url to view search results in the browser
-        /// </summary>
-        [JsonProperty("weburl")]
-        public string WebUrl { get; set; }
-
         /// <summary>
         /// Collection of results matching search criteria
         /// </summary>

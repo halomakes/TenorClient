@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using Tenor.Schema;
 using Tenor.Utils;
@@ -9,29 +10,23 @@ namespace Tenor
     public partial class TenorClient
     {
         /// <summary>
-        /// Perform a search for GIFs by keywords
+        /// Get a list of the current global trending GIFs
         /// </summary>
-        /// <param name="query">Keywords to search on</param>
+        /// <remarks>The trending stream is updated regularly throughout the day</remarks>
         /// <param name="limit">Maximum number of posts to retrieve</param>
         /// <param name="position">Position to start search from when using pagination</param>
         /// <returns>Result set</returns>
-        public async Task<SearchResult> SearchAsync(string query, int? limit = null, string position = null)
+        public async Task<QueryResult> GetTrendingAsync(int? limit = null, string position = null)
         {
-            if (string.IsNullOrEmpty(query))
-            {
-                throw new ArgumentException("Query is required.");
-            }
-
             var @params = GetParameters(new Dictionary<string, object>
             {
-                { "q", query },
                 { "limit", limit },
                 { "pos", position }
             });
 
-            var requestPath = new Uri($"{BaseUrl}v1/search").ApplyQueryParams(@params);
+            var requestPath = new Uri($"{BaseUrl}v1/trending").ApplyQueryParams(@params);
 
-            return await client.GetAsync<SearchResult>(requestPath.ToString());
+            return await client.GetAsync<QueryResult>(requestPath.ToString());
         }
     }
 }
