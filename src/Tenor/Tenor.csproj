@@ -8,12 +8,25 @@
     <Product>Tenor API Client</Product>
     <Description>Client for interacting with the Tenor API with full async support.  Built on .NET Standard 2.0.</Description>
     <Version>1.0.0-alpha</Version>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageProjectUrl>https://tenor-client.halomademeapc.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/halomademeapc/TenorClient</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>tenor,gif,api</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="JsonNet.ContractResolvers" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docfx_project\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
