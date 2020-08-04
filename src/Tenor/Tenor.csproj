@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>TenorClient</PackageId>
+    <Authors>halomademeapc</Authors>
+    <Product>Tenor API Client</Product>
+    <Description>Client for interacting with the Tenor API with full async support.  Built on .NET Standard 2.0.</Description>
+    <Version>1.0.0-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>

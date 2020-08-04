@@ -1,7 +1,6 @@
 ﻿using JsonNet.ContractResolvers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
 using System.IO;
 using System.Net.Http;
 using System.Text;
