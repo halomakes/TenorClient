@@ -71,6 +71,11 @@ namespace Tenor.Schema
         /// Smallest size of the webm format
         /// </summary>
         /// <remarks>Use this size for GIF previews on mobile</remarks>
-        [EnumMember(Value = "nanowebm")] NanoWebM
+        [EnumMember(Value = "nanowebm")] NanoWebM,
+
+        /// <summary>
+        /// Transparent webp image
+        /// </summary>
+        [EnumMember(Value = "webp_transparent")]TransparentWebP
     }
 }
