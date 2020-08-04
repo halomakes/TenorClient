@@ -61,7 +61,7 @@ namespace Tenor
         /// <param name="ids">IDs of the posts</param>
         /// <param name="limit">Maximum # of posts to fetch</param>
         /// <returns>Matching posts</returns>
-        public async Task<GifQueryResult> GetPostsAsync(IEnumerable<string> ids, int? limit)
+        public async Task<GifQueryResult> GetPostsAsync(IEnumerable<string> ids, int? limit = null)
         {
             var filteredIds = ids.Select(i => i?.Trim()).Where(i => !string.IsNullOrEmpty(i));
 

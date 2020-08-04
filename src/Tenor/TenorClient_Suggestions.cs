@@ -27,7 +27,7 @@ namespace Tenor
                 { "limit", limit }
             });
 
-            var requestPath = new Uri($"{BaseUrl}v1/search").ApplyQueryParams(@params);
+            var requestPath = new Uri($"{BaseUrl}v1/search_suggestions").ApplyQueryParams(@params);
 
             return (await client.GetAsync<SuggestionResult>(requestPath.ToString()))?.Results;
         }
@@ -48,23 +48,6 @@ namespace Tenor
             var @params = GetParameters(new Dictionary<string, object>
             {
                 { "q", query },
-                { "limit", limit }
-            });
-
-            var requestPath = new Uri($"{BaseUrl}v1/autocomplete").ApplyQueryParams(@params);
-
-            return (await client.GetAsync<SuggestionResult>(requestPath.ToString()))?.Results;
-        }
-
-        /// <summary>
-        /// Get currently trending search terms
-        /// </summary>
-        /// <param name="limit">Maximum number of search terms to retrieve</param>
-        /// <returns>Suggested search queries in provided culture</returns>
-        public async Task<IEnumerable<string>> GetTrendingTermsAsync(int? limit = null)
-        {
-            var @params = GetParameters(new Dictionary<string, object>
-            {
                 { "limit", limit }
             });
 

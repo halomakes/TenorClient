@@ -50,5 +50,15 @@ namespace Tenor.Tests
 
             Assert.NotEmpty(results.Results);
         }
+
+        [Fact]
+        public async Task Category_Should_Work()
+        {
+            var categories = await client.GetCategoriesAsync();
+            Assert.NotEmpty(categories.Categories);
+
+            var results = await client.SearchAsync(categories.Categories.FirstOrDefault());
+            Assert.NotEmpty(results.Results);
+        }
     }
 }
