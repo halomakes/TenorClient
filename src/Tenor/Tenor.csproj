@@ -7,7 +7,7 @@
     <Authors>halomademeapc</Authors>
     <Product>Tenor API Client</Product>
     <Description>Client for interacting with the Tenor API with full async support.  Built on .NET Standard 2.0.</Description>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageIcon>logo.png</PackageIcon>
     <PackageProjectUrl>https://tenor-client.halomademeapc.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/halomademeapc/TenorClient</RepositoryUrl>
