@@ -105,11 +105,11 @@ namespace Tenor.Schema
         /// <summary>
         /// Smaller transparent webp image
         /// </summary>
-        [EnumMember(Value ="tinywebp_transparent")]TinyTransparentWebP,
+        [EnumMember(Value ="tinywebp_transparent")] TransparentTinyWebP,
 
         /// <summary>
         /// Smallest transparent webp image
         /// </summary>
-        [EnumMember(Value = "nanowebp_transparent")]NanoTransparentWebP
+        [EnumMember(Value = "nanowebp_transparent")] TransparentNanoWebP
     }
 }
