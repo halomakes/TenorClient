@@ -32,6 +32,30 @@ namespace Tenor.Schema
         [EnumMember(Value = "nanogif")] NanoGif,
 
         /// <summary>
+        /// High quality GIF format, largest file size available
+        /// </summary>
+        /// <remarks>Use this size for GIF shares on desktop</remarks>
+        [EnumMember(Value = "gif_transparent")] TransparentGif,
+
+        /// <summary>
+        /// Small reduction in size of the GIF format
+        /// </summary>
+        /// <remarks>Use this size for GIF previews on desktop</remarks>
+        [EnumMember(Value = "mediumgif_transparent")] TransparentMediumGif,
+
+        /// <summary>
+        /// Reduced size of the GIF format
+        /// </summary>
+        /// <remarks>Use this size for GIF previews and shares on mobile</remarks>
+        [EnumMember(Value = "tinygif_transparent")] TransparentTinyGif,
+
+        /// <summary>
+        /// Smallest size of the GIF format
+        /// </summary>
+        /// <remarks>Use this size for GIF previews on mobile</remarks>
+        [EnumMember(Value = "nanogif_transparent")] TransparentNanoGif,
+
+        /// <summary>
         /// Highest quality video format, largest of the video formats, but smaller than GIF
         /// </summary>
         /// <remarks>Use this size for MP4 previews and shares on desktop</remarks>
